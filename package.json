@@ -1,0 +1,11 @@
+{
+  "name": "wave-function-collapse",
+  "version": "1.0.0",
+  "description": "Auto generate mapping of images based on rules given. Lookup Wave function collapse for more details",
+  "main": "main.js",
+  "scripts": {
+    "test": "google-chrome index.html"
+  },
+  "author": "Henri U",
+  "license": "ISC"
+}

@@ -1,0 +1,10 @@
+#canvas_div{
+    width: 100%;
+    height: auto;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
