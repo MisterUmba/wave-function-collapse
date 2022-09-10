@@ -19,24 +19,40 @@ function connecting_pieces(current_piece){
 
 function table_buffer(image_objects, callback) {
     let buffer = [];
-    for (let i = 0; i < dimensions.rows; i++) {
-        let aRow = [];
-        for (let j = 0; j < dimensions.columns; j++) {
-            let place = rand(0, Object.keys(image_objects).length)
-            let cell = image_objects[Object.keys(image_objects)[place]];
+    let working_set = []
 
-            aRow.push(cell);
-
+    // initiate buffer to all empties cells
+    for(let i = 0; i < dimensions.rows; i++){
+        var aRow = [];
+        for(let j = 0; j < dimensions.columns; j++){
+            aRow.push(image_objects[2])
         }
         buffer.push(aRow);
     }
+
+    // Pick a random location, & give it random seed
+    // put it in the working set list
+
+    // while working set isn't empty
+        // take the cell with least waves/potential
+        // collapse it to random potential
+        // add it's neighbors to the working set list. 
     callback(buffer);
 }
 
-function screen_buffer(image_objects, callback) {
-    // Just passing stream of data to draw()
-    // Might do something special in the future. 
-    callback(image_objects);
+function screen_buffer(image_object, callback) {
+    buffer = []
+    for(let i = 0; i < dimensions.rows; i++){
+        var aRow = [];
+        for(let j = 0; j < dimensions.columns; j++){
+            aRow.push(image_object[i][j].img);
+        }
+        buffer.push(aRow);
+    }
+    
+    
+    
+    callback(buffer);
 }
 
 function ImageLoader(sources, callback) {
