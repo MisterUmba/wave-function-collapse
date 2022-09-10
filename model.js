@@ -1,11 +1,11 @@
 let dimensions = { columns: 24, rows: 12 }
 
 let image_list = {
-    1: { src: "./pics/1.png"},
-    2: { src: "./pics/2.png"},
-    3: { src: "./pics/3.png"},
-    4: { src: "./pics/4.png"},
-    5: { src: "./pics/5.png"}
+    1: { src: "./pics/1.png", rules: [true, true, false, true]},
+    2: { src: "./pics/2.png", rules: [false, false, false, false]},
+    3: { src: "./pics/3.png", rules: [false, true, false, true]},
+    4: { src: "./pics/4.png", rules: [true, true, true, true]},
+    5: { src: "./pics/5.png", rules: [true, false, false, true]}
 }
 
 function rand(min, max){
