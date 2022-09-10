@@ -21,20 +21,18 @@ function resize() {
     }
 }
 
-function draw() {
-    screen_buffer((screen) => {
-        for (let i = 0; i < screen[0].length; i++) {
-            for (let j = 0; j < screen.length; j++) {
-                var x = i * (canvas.width / dimensions.columns);
-                var y = j * (canvas.height / dimensions.rows);
-                var w = (canvas.width / dimensions.columns);
-                var h = (canvas.height / dimensions.rows);
-                pen.save();
-                pen.drawImage(screen[j][i].img,x,y,w, h)
-                pen.restore();
-            }
+function draw(screen) {
+    for (let i = 0; i < screen[0].length; i++) {
+        for (let j = 0; j < screen.length; j++) {
+            var x = i * (canvas.width / dimensions.columns);
+            var y = j * (canvas.height / dimensions.rows);
+            var w = (canvas.width / dimensions.columns);
+            var h = (canvas.height / dimensions.rows);
+            pen.save();
+            pen.drawImage(screen[j][i].img, x, y, w, h)
+            pen.restore();
         }
-    });
+    }
 }
 
 function clear() {
