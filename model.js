@@ -1,11 +1,11 @@
-let dimensions = { columns: 12, rows: 12 }
+let dimensions = { columns: 24, rows: 12 }
 
 let image_list = {
-    1: { src: "./pics/1.png", ang: 0 },
-    2: { src: "./pics/2.png", ang: 0 },
-    3: { src: "./pics/3.png", ang: 0 },
-    4: { src: "./pics/4.png", ang: 0 },
-    5: { src: "./pics/5.png", ang: 0 }
+    1: { src: "./pics/1.png"},
+    2: { src: "./pics/2.png"},
+    3: { src: "./pics/3.png"},
+    4: { src: "./pics/4.png"},
+    5: { src: "./pics/5.png"}
 }
 
 function rand(min, max){
@@ -21,8 +21,6 @@ function screen_buffer(callback) {
             for (let j = 0; j < dimensions.columns; j++) {
                 let place = rand(0, Object.keys(images).length)
                 let cell = images[Object.keys(images)[place]];
-                
-                // cell.ang = [0,Math.PI/2, Math.PI, (2*Math.PI)*(3/4), 2*Math.PI][rand(0,4)]
 
                 aRow.push(cell);
 
@@ -44,7 +42,7 @@ function ImageLoader(sources, callback) {
     numImages = Object.keys(sources).length;
 
     for (var obj in sources) {
-        images[obj] = { img: new Image(), ang: sources[obj].ang };
+        images[obj] = { img: new Image()};
         images[obj].img.onload = function () {
 
             if (++loadedImages >= numImages) {

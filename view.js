@@ -30,17 +30,7 @@ function draw() {
                 var w = (canvas.width / dimensions.columns);
                 var h = (canvas.height / dimensions.rows);
                 pen.save();
-                pen.translate((w / 2),(h / 2));
-                pen.rotate(screen[j][i].ang);
-                pen.drawImage(
-                    screen[j][i].img,
-                    x - (w / 2),
-                    y - (h / 2),
-                    w,
-                    h
-                )
-                pen.rotate(-screen[j][i].ang);
-                pen.translate(-(w / 2), -(h / 2));
+                pen.drawImage(screen[j][i].img,x,y,w, h)
                 pen.restore();
             }
         }
