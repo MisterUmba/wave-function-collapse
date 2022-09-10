@@ -9,8 +9,8 @@ window.onresize = () => {
 }
 
 
-table_buffer(paths_and_rules, (obj_paths)=>{
-    ImageLoader(obj_paths, (images)=>{
+ImageLoader(paths_and_rules, (obj_paths)=>{
+    table_buffer(obj_paths, (images)=>{
         screen_buffer(images, draw);
     });
 })
