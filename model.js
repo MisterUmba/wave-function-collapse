@@ -13,45 +13,53 @@ function rand(min, max) {
     return Math.floor(Math.random() * d) + min;
 }
 
-function connecting_pieces(current_piece){
+function connecting_pieces(current_piece) {
 
 }
 
 function table_buffer(image_objects, callback) {
+    console.log(image_objects)
     let buffer = [];
     let working_set = []
 
     // initiate buffer to all empties cells
-    for(let i = 0; i < dimensions.rows; i++){
+    for (let i = 0; i < dimensions.rows; i++) {
         var aRow = [];
-        for(let j = 0; j < dimensions.columns; j++){
+        for (let j = 0; j < dimensions.columns; j++) {
             aRow.push(image_objects[2])
         }
         buffer.push(aRow);
     }
 
     // Pick a random location, & give it random seed
+    var rx = rand(0, dimensions.rows);
+    var ry = rand(0, dimensions.columns);
+    var tx = rand(0, Object.keys(image_objects).length) + 1;
+    var test = image_objects[tx];
+    buffer[rx][ry] = test;
+
     // put it in the working set list
 
     // while working set isn't empty
-        // take the cell with least waves/potential
-        // collapse it to random potential
-        // add it's neighbors to the working set list. 
+    // take the cell with least waves/potential
+    // collapse it to random potential
+    // add it's neighbors to the working set list. 
+    console.log(buffer);
     callback(buffer);
 }
 
 function screen_buffer(image_object, callback) {
     buffer = []
-    for(let i = 0; i < dimensions.rows; i++){
+    for (let i = 0; i < dimensions.rows; i++) {
         var aRow = [];
-        for(let j = 0; j < dimensions.columns; j++){
+        for (let j = 0; j < dimensions.columns; j++) {
             aRow.push(image_object[i][j].img);
         }
         buffer.push(aRow);
     }
-    
-    
-    
+
+
+
     callback(buffer);
 }
 
@@ -63,7 +71,7 @@ function ImageLoader(sources, callback) {
     numImages = Object.keys(sources).length;
 
     for (var obj in sources) {
-        images[obj] = { img: new Image()};
+        images[obj] = { img: new Image() };
         images[obj].img.onload = function () {
 
             if (++loadedImages >= numImages) {
