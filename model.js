@@ -13,13 +13,10 @@ function rand(min, max) {
     return Math.floor(Math.random() * d) + min;
 }
 
-function table_buffer(paths_rules, callback) {
-    let obj_paths = paths_rules;
+function table_buffer(image_objects, callback) {
+    // let obj_paths = paths_rules;
 
-    callback(obj_paths);
-}
-
-function screen_buffer(image_objects, callback) {
+    // callback(obj_paths);
     let buffer = [];
     for (let i = 0; i < dimensions.rows; i++) {
         let aRow = [];
@@ -33,7 +30,12 @@ function screen_buffer(image_objects, callback) {
         buffer.push(aRow);
     }
     callback(buffer);
+}
 
+function screen_buffer(image_objects, callback) {
+    // Just passing stream of data to draw()
+    // Might do something special in the future. 
+    callback(image_objects);
 }
 
 function ImageLoader(sources, callback) {
