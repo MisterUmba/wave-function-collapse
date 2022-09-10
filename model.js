@@ -13,10 +13,11 @@ function rand(min, max) {
     return Math.floor(Math.random() * d) + min;
 }
 
-function table_buffer(image_objects, callback) {
-    // let obj_paths = paths_rules;
+function connecting_pieces(current_piece){
 
-    // callback(obj_paths);
+}
+
+function table_buffer(image_objects, callback) {
     let buffer = [];
     for (let i = 0; i < dimensions.rows; i++) {
         let aRow = [];
@@ -46,7 +47,7 @@ function ImageLoader(sources, callback) {
     numImages = Object.keys(sources).length;
 
     for (var obj in sources) {
-        images[obj] = { img: new Image() };
+        images[obj] = { img: new Image()};
         images[obj].img.onload = function () {
 
             if (++loadedImages >= numImages) {
@@ -54,5 +55,6 @@ function ImageLoader(sources, callback) {
             }
         };
         images[obj].img.src = sources[obj].src;
+        images[obj].rules = sources[obj].rules;
     }
 }
